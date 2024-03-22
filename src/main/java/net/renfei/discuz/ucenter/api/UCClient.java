@@ -1,16 +1,12 @@
 package net.renfei.discuz.ucenter.api;
 
-import java.io.IOException;
+import jakarta.servlet.http.Cookie;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import net.renfei.discuz.ucenter.client.Client;
+
 import java.util.HashMap;
 import java.util.Map;
-
-import javax.servlet.ServletException;
-import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import net.renfei.discuz.ucenter.client.Client;
 
 /**
  * ================================================
@@ -121,7 +117,7 @@ public class UCClient {
             Cookie user = new Cookie("loginuser", getMap.get("username"));
             user.setMaxAge(cookietime);
             response.addCookie(user);
-            response.setHeader("content-type","application/javascript");
+            response.setHeader("content-type", "application/javascript");
 
         } else if ("synlogout".equals(action)) {
 
@@ -137,7 +133,7 @@ public class UCClient {
             Cookie user = new Cookie("loginuser", "");
             user.setMaxAge(0);
             response.addCookie(user);
-            response.setHeader("content-type","application/javascript");
+            response.setHeader("content-type", "application/javascript");
 
         } else if ("updateclient".equals(action)) {
 
